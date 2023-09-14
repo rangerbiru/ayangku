@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dibuka Sayang Wkwk</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Mooli&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+        * {
+            font-family: 'Mooli', sans-serif;
+            font-family: 'Poppins', sans-serif;
+            box-sizing: border-box;
+        }
+
+        .contents {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            /* border: 2px solid black; */
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        }
+
+        #generateButton {
+            margin-top: 5px;
+            margin-bottom: 15px;
+            ;
+        }
+
+        .cinta {
+            line-height: 1.5;
+            padding: 10px;
+            border-radius: 10px;
+            color: pink;
+        }
+
+        #incrementButton {
+            padding: 10px 20px;
+            border: 1px solid #000;
+            background-color: pink;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+
+        img {
+            width: 300px;
+            height: auto;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contents" align="center" hidden>
+
+        <h3 id="text-cinta">Coba di klik 5x deh Sayang <span id="count">0</span></h3>
+        <button id="incrementButton">Tekan Aku :)</button>
+    </div>
+
+    <script>
+        const count = document.getElementById('count')
+        const cinta = document.getElementById('text-cinta')
+
+        function increment() {
+            count.innerText++
+
+            if (count.innerText == 3) {
+                const pesanTersembunyi = document.createElement('div')
+                pesanTersembunyi.innerHTML = `<h2 class="cinta">Aku Sayang Kamu Cantik <br/> Arrafi - Wulan</h2>`
+
+                const imageLove = document.createElement('img')
+                imageLove.setAttribute('src', './ayang.jpg')
+
+                const content = document.querySelector('.contents')
+                content.appendChild(pesanTersembunyi).appendChild(imageLove)
+
+                cinta.remove()
+                document.getElementById('incrementButton').remove()
+
+                setTimeout(() => {
+                    alert("Dahh jangan lama-lama liatnya wkwk maluuuuuu....")
+                }, 2000);
+            }
+        }
+
+        function welcome() {
+            alert("Tolong dibuka yaa Sayang :)")
+            const content = document.querySelector('.contents')
+            content.removeAttribute('hidden')
+        }
+
+        document.getElementById('incrementButton').onclick = increment
+        document.body.onload = welcome
+
+    </script>
+</body>
+
+</html>
